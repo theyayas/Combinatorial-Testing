@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<System name="Car Booking Service">
+  <Parameters>
+    <Parameter id="0" name="CarType" type="1">
+      <values>
+        <value>Truck</value>
+        <value>Jeep</value>
+        <value>Mini-van</value>
+        <value>Mini</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
+    <Parameter id="1" name="Color" type="1">
+      <values>
+        <value>Blue</value>
+        <value>Lilac</value>
+        <value>Yellow</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
+    <Parameter id="2" name="Engine" type="1">
+      <values>
+        <value>Diesel</value>
+        <value>Gasoline</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
+    <Parameter id="3" name="PassengerSeatAirbag" type="1">
+      <values>
+        <value>Yes</value>
+        <value>No</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
+    <Parameter id="4" name="PassengerSeatSideAirbag" type="1">
+      <values>
+        <value>Yes</value>
+        <value>No</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
+    <Parameter id="5" name="SideAirbagBack" type="1">
+      <values>
+        <value>Left</value>
+        <value>Right</value>
+        <value>None</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
+    <Parameter id="6" name="Seatbelts" type="1">
+      <values>
+        <value>Yes</value>
+        <value>No</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
+    <Parameter id="7" name="PassengerSeatChildSeat" type="1">
+      <values>
+        <value>Yes</value>
+        <value>No</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
+  </Parameters>
+  <OutputParameters />
+  <Relations />
+  <Constraints>
+    <Constraint text="(CarType = &quot;Truck&quot;) =&gt; (SideAirbagBack = &quot;None&quot;)">
+      <Parameters>
+        <Parameter name="CarType" />
+        <Parameter name="SideAirbagBack" />
+      </Parameters>
+    </Constraint>
+    <Constraint text="(PassengerSeatAirbag = &quot;Yes&quot;) =&gt; (PassengerSeatChildSeat = &quot;No&quot;)">
+      <Parameters>
+        <Parameter name="PassengerSeatAirbag" />
+        <Parameter name="PassengerSeatChildSeat" />
+      </Parameters>
+    </Constraint>
+    <Constraint text="(CarType = &quot;Truck&quot;) =&gt; (Color = &quot;Yellow&quot;) =&gt; (PassengerSeatAirbag = &quot;Yes&quot;)">
+      <Parameters>
+        <Parameter name="CarType" />
+        <Parameter name="Color" />
+        <Parameter name="PassengerSeatAirbag" />
+      </Parameters>
+    </Constraint>
+  </Constraints>
+  <Testset doi="2">
+    <Testcase TCNo="0">
+      <Value>1</Value>
+      <Value>Truck</Value>
+      <Value>Blue</Value>
+      <Value>Gasoline</Value>
+      <Value>No</Value>
+      <Value>No</Value>
+      <Value>None</Value>
+      <Value>No</Value>
+      <Value>No</Value>
+    </Testcase>
+    <Testcase TCNo="1">
+      <Value>2</Value>
+      <Value>Truck</Value>
+      <Value>Lilac</Value>
+      <Value>Diesel</Value>
+      <Value>Yes</Value>
+      <Value>Yes</Value>
+      <Value>None</Value>
+      <Value>Yes</Value>
+      <Value>No</Value>
+    </Testcase>
+    <Testcase TCNo="2">
+      <Value>3</Value>
+      <Value>Truck</Value>
+      <Value>Yellow</Value>
+      <Value>Gasoline</Value>
+      <Value>Yes</Value>
+      <Value>No</Value>
+      <Value>None</Value>
+      <Value>Yes</Value>
+      <Value>No</Value>
+    </Testcase>
+    <Testcase TCNo="3">
+      <Value>4</Value>
+      <Value>Jeep</Value>
+      <Value>Blue</Value>
+      <Value>Diesel</Value>
+      <Value>Yes</Value>
+      <Value>Yes</Value>
+      <Value>Left</Value>
+      <Value>No</Value>
+      <Value>No</Value>
+    </Testcase>
+    <Testcase TCNo="4">
+      <Value>5</Value>
+      <Value>Jeep</Value>
+      <Value>Lilac</Value>
+      <Value>Gasoline</Value>
+      <Value>Yes</Value>
+      <Value>No</Value>
+      <Value>Right</Value>
+      <Value>Yes</Value>
+      <Value>No</Value>
+    </Testcase>
+    <Testcase TCNo="5">
+      <Value>6</Value>
+      <Value>Jeep</Value>
+      <Value>Yellow</Value>
+      <Value>Diesel</Value>
+      <Value>Yes</Value>
+      <Value>No</Value>
+      <Value>Left</Value>
+      <Value>No</Value>
+      <Value>No</Value>
+    </Testcase>
+    <Testcase TCNo="6">
+      <Value>7</Value>
+      <Value>Mini-van</Value>
+      <Value>Blue</Value>
+      <Value>Diesel</Value>
+      <Value>Yes</Value>
+      <Value>Yes</Value>
+      <Value>Right</Value>
+      <Value>Yes</Value>
+      <Value>No</Value>
+    </Testcase>
+    <Testcase TCNo="7">
+      <Value>8</Value>
+      <Value>Mini-van</Value>
+      <Value>Lilac</Value>
+      <Value>Gasoline</Value>
+      <Value>Yes</Value>
+      <Value>Yes</Value>
+      <Value>Left</Value>
+      <Value>No</Value>
+      <Value>No</Value>
+    </Testcase>
+    <Testcase TCNo="8">
+      <Value>9</Value>
+      <Value>Mini-van</Value>
+      <Value>Yellow</Value>
+      <Value>Diesel</Value>
+      <Value>Yes</Value>
+      <Value>No</Value>
+      <Value>Right</Value>
+      <Value>No</Value>
+      <Value>No</Value>
+    </Testcase>
+    <Testcase TCNo="9">
+      <Value>10</Value>
+      <Value>Mini</Value>
+      <Value>Blue</Value>
+      <Value>Diesel</Value>
+      <Value>Yes</Value>
+      <Value>Yes</Value>
+      <Value>None</Value>
+      <Value>Yes</Value>
+      <Value>No</Value>
+    </Testcase>
+    <Testcase TCNo="10">
+      <Value>11</Value>
+      <Value>Mini</Value>
+      <Value>Lilac</Value>
+      <Value>Gasoline</Value>
+      <Value>Yes</Value>
+      <Value>No</Value>
+      <Value>Left</Value>
+      <Value>No</Value>
+      <Value>No</Value>
+    </Testcase>
+    <Testcase TCNo="11">
+      <Value>12</Value>
+      <Value>Mini</Value>
+      <Value>Yellow</Value>
+      <Value>Gasoline</Value>
+      <Value>Yes</Value>
+      <Value>Yes</Value>
+      <Value>Right</Value>
+      <Value>Yes</Value>
+      <Value>No</Value>
+    </Testcase>
+    <Testcase TCNo="12">
+      <Value>13</Value>
+      <Value>Jeep</Value>
+      <Value>Yellow</Value>
+      <Value>Diesel</Value>
+      <Value>Yes</Value>
+      <Value>Yes</Value>
+      <Value>None</Value>
+      <Value>Yes</Value>
+      <Value>No</Value>
+    </Testcase>
+    <Testcase TCNo="13">
+      <Value>14</Value>
+      <Value>Mini-van</Value>
+      <Value>Blue</Value>
+      <Value>Diesel</Value>
+      <Value>Yes</Value>
+      <Value>No</Value>
+      <Value>None</Value>
+      <Value>No</Value>
+      <Value>No</Value>
+    </Testcase>
+    <Testcase TCNo="14">
+      <Value>15</Value>
+      <Value>Truck</Value>
+      <Value>Lilac</Value>
+      <Value>Diesel</Value>
+      <Value>No</Value>
+      <Value>Yes</Value>
+      <Value>None</Value>
+      <Value>Yes</Value>
+      <Value>Yes</Value>
+    </Testcase>
+    <Testcase TCNo="15">
+      <Value>16</Value>
+      <Value>Mini-van</Value>
+      <Value>Yellow</Value>
+      <Value>Diesel</Value>
+      <Value>Yes</Value>
+      <Value>No</Value>
+      <Value>Left</Value>
+      <Value>Yes</Value>
+      <Value>No</Value>
+    </Testcase>
+    <Testcase TCNo="16">
+      <Value>17</Value>
+      <Value>Truck</Value>
+      <Value>Blue</Value>
+      <Value>Gasoline</Value>
+      <Value>No</Value>
+      <Value>No</Value>
+      <Value>None</Value>
+      <Value>No</Value>
+      <Value>Yes</Value>
+    </Testcase>
+  </Testset>
+  <Header>
+    <Value />
+    <Value>CarType</Value>
+    <Value>Color</Value>
+    <Value>Engine</Value>
+    <Value>PassengerSeatAirbag</Value>
+    <Value>PassengerSeatSideAirbag</Value>
+    <Value>SideAirbagBack</Value>
+    <Value>Seatbelts</Value>
+    <Value>PassengerSeatChildSeat</Value>
+  </Header>
+  <Stat-Data>
+    <ExecutionTime>0.031</ExecutionTime>
+    <MaxDomainSize>4</MaxDomainSize>
+    <MinDomainSize>2</MinDomainSize>
+    <TotalNoOfCombination>158</TotalNoOfCombination>
+    <TotalNoOfTests>17</TotalNoOfTests>
+    <Algorithm>IPOG</Algorithm>
+  </Stat-Data>
+</System>
+
